@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <!-- style.css -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заметки</title>
+</head>
+<body>
+<div class="modal-container">
+    <div class="modal">
+        <form id="newNoteForm">
+            <label for="title">Добавьте заголовок</label>
+            <input type="text" id="title">
+            <label for="title">Добавьте описание</label>
+            <input type="text" id="description">
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+</div>
+   
+    <div class="notes-block">
+        <button class="add-btn" id="addBtn">Добавить</button>
+
+        <div class="notes-ul">
+            <div class="note-el">
+                <span class="note-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                <br>
+                <span class="note-description">Lorem ipsum dolor sit amet consectetur adipisicing eli</span>
+                <br>
+                <span class="publish-date">22.10.2020</span>
+            </div>
+
+            <div class="note-el">
+                <span class="note-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi?</span>
+                <br>
+                <span class="note-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam eos ducimus, blanditiis quos ipsum quae?</span>
+            </div>
+
+
+
+           
+        </div>
+    </div>
+
+    <div class="editor-block"> 
+        <!-- <div class="sample-toolbar">
+            <a href="javascript:void(0)" onclick="format('bold')"><span class="bold-tool"><i class="fas fa-bold"></i></span></a>
+
+            <a href="javascript:void(0)" onclick="format('italic')"><span class="italic-tool"><i class="fas fa-italic"></i></span></a>
+
+            <a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="list-toolbar"><i class="fas fa-list"></i></span></a>
+ 
+            <span class="attach-tool"><i class="fas fa-link"></i></span>
+
+        </div>
+
+        <div class="content-area" contenteditable="true">
+        </div> -->
+
+        <div class="sample-toolbar">
+            <div class="tools-container">
+                <a class="tool" href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
+            <a class="tool" href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
+
+            <a class="tool" href="javascript:void(0)" onclick="format('underline')"><span class="fa fa-underline"></span></a>
+
+            <div class="dropdown">
+                <span class="fas fa-align-center"></span>
+                <div class="dropdown-content">
+                    <a class="tool" href="javascript:void(0)" onclick="format('justifyCenter')"><i class="fas fa-align-center"></i></a>
+
+                    <a class="tool" href="javascript:void(0)" onclick="format('justifyRight')"><i class="fas fa-align-right"></i></a>
+    
+                    <a class="tool" href="javascript:void(0)" onclick="format('justifyLeft')"><i class="fas fa-align-left"></i></a>
+                </div>
+              </div>
+            
+            <!-- <span class="tool">Размер текста</span>
+            <div id="fontSizePopup">
+                <a class="tool" href="javascript:void(0)" onclick="format('fontSize', 7)">Большой</a>
+
+                <a class="tool" href="javascript:void(0)" onclick="format('fontSize', 5)">Средний</a>
+
+                <a class="tool" href="javascript:void(0)" onclick="format('fontSize', 3)">Обычный</a>
+            </div> -->
+
+            <div class="dropdown">
+                <span class="fas fa-palette"></span>
+                <div class="dropdown-content">
+                    <a class="tool" href="javascript:void(0)" onclick="format('backColor', '#81ececcc')"><div class="color-picker first-color"></div></a>
+                    <a class="tool" href="javascript:void(0)" onclick="format('backColor', ' #e5eaecc2')"><div class="color-picker second-color"></div></a>
+                    <a class="tool" href="javascript:void(0)" onclick="format('backColor', '#fffa65a6')"><div class="color-picker third-color"></div></a>
+                    <a class="tool" href="javascript:void(0)" onclick="format('backColor', '#ffffff')"><div class="color-picker fourth-color"></div></a>
+                </div>
+              </div>
+
+
+            <div class="dropdown">
+                <span>Размер</span>
+                <div class="dropdown-content">
+                    <a style="font-size: 30px;" class="tool" href="javascript:void(0)" onclick="format('fontSize', 6)">Большой</a>
+
+                    <a style="font-size: 22px;" class="tool" href="javascript:void(0)" onclick="format('fontSize', 5)">Средний</a>
+    
+                    <a style="font-size: 14px;" class="tool" href="javascript:void(0)" onclick="format('fontSize', 3)">Обычный</a>
+                </div>
+              </div>
+
+              <div class="dropdown">
+                <span>Шрифт</span>
+                <div class="dropdown-content">
+                    <a style="font-family: Arial;" class="tool" href="javascript:void(0)" onclick="format('fontName', 'Arial')">Arial</a>
+
+                    <a style="font-family: Comic Sans MS;" class="tool" href="javascript:void(0)" onclick="format('fontName', 'Comic Sans MS')">Comic Sans MS</a>
+    
+                    <a class="tool" href="javascript:void(0)" onclick="format('fontName', 'Montserrat')">Обычный</a>
+                </div>
+              </div>
+
+              <a class="tool sidebar-handler" onclick="handleSidebar()"><span class="fas fa-window-maximize"></span></a>
+            </div>
+
+            <div class="tools-buttons">
+            <button class="save-btn" id="saveBtn">Сохранить (ctrl + q)</button>
+            <button class="remove-btn" id="removeBtn">Удалить</button>
+            </div>
+    </div>
+    
+    <div class="editor" id="sampleeditor" contenteditable="true">
+        </div>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
