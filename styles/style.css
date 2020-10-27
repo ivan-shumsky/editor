@@ -49,8 +49,12 @@ body{
     height: 100vh;
 }
 
+body.active .notes-block{
+  display: none;
+}
+
 body.active{
-  grid-template-columns: 0fr 8fr;
+  grid-template-columns: 1fr;
 }
 
 button{
@@ -105,17 +109,17 @@ border-bottom: 1px solid rgb(54, 54, 54);
 }
 
 .note-title{
-font-size: 17px;
+font-size: 18px;
 color: var(--primary);
 }
 
 .note-description{
-font-size: 14px;
+font-size: 15px;
 color: var(--primary-dark);
 }
 
 .publish-date{
-    font-size: 14px;
+    font-size: 15px;
     color: var(--primary-dark);
     display: block;
     margin-top: .6rem;
@@ -125,7 +129,7 @@ color: var(--primary-dark);
 .editor{
 padding: .5rem;
 outline: none;
-font-size: 16px;
+font-size: 30px;
 font-family: Nunito, sans-serif;
 
 }
@@ -159,25 +163,11 @@ font-family: Nunito, sans-serif;
     overflow: hidden;
 }
 
-.editor-block{
-  overflow-y: scroll;
-}
-.editor-block::-webkit-scrollbar {
-  width: 12px; 
-
-}
-.editor-block::-webkit-scrollbar-track {
-  background: var(--light);      
-}
-.editor-block::-webkit-scrollbar-thumb {
-  background-color: var(--gray);    
-  border: 3px solid var(--gray);  
-} 
 
 .editor
         {
-            padding: 20px;
             max-height: 100%;
+            overflow-y: scroll;
         }
 
         .sample-toolbar
@@ -200,6 +190,23 @@ font-family: Nunito, sans-serif;
             text-decoration:underline;
     }
     
+    
+.editor::-webkit-scrollbar {
+  width: 12px; 
+
+}
+.editor::-webkit-scrollbar-track {
+  background: var(--light);      
+}
+.editor::-webkit-scrollbar-thumb {
+  background-color: var(--gray);    
+  border: 3px solid var(--gray);  
+} 
+
+.tool.clicked{
+  color: var(--danger);
+}
+
     .sample-toolbar{
       display: flex;
       justify-content: space-between;
@@ -213,7 +220,7 @@ font-family: Nunito, sans-serif;
           border: 0;
           color: var(--dark-three);
           outline: none;
-          font-size: 14px;
+          font-size: 16px;
           cursor: pointer;
           transition: .3s all ease;
     }
@@ -376,4 +383,9 @@ color: var(--light);
       font-size: 17px;
     }
 
+  }
+
+  .dropdown-pallete a.clicked{
+    background-color: var(--dark-three);
+    
   }
