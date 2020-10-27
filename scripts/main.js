@@ -49,7 +49,7 @@ function addNotesToPage(){
     </div>`;
     newNoteEl.setAttribute("id", "1id");
     notesUl.appendChild(newNoteEl);
-    
+    // console.log(newNoteEl.innerHTML);
 }}
 
 function updateEditorContent(){
@@ -185,9 +185,30 @@ if(e.ctrlKey && e.which == 81){
 removeBtn.addEventListener("click", removeNote);
 
 // on load
-addNotesToPage();
+if(localStorage.getItem("notes")){
+    // editor.innerHTML = JSON.parse(localStorage.getItem("notes"))[0].html;
+    addNotesToPage();
+
+} else {
+}
 updateEditorContent();
 // addOrRemoveOverflow();
 storage();
 handleScrollbar();
-editor.innerHTML = JSON.parse(localStorage.getItem("notes"))[0].html;
+
+const toolss = document.querySelectorAll('.tools-container .tool');
+toolss.forEach(tool => {
+    tool.addEventListener("click", function(e){
+        console.log(e);
+        tool.classList.toggle("clicked");
+    })
+
+})
+// })
+// const drops = document.querySelectorAll('.dropdown-content .tool');
+// drops.forEach(drop => {
+//     drop.classList.remove("clicked");
+//     drop.addEventListener("click", function(){
+//         drop.classList.add("clicked");
+//     })
+// })
